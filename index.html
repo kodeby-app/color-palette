@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Color Palette</title>
+  <meta name="description" content="Make a color palette that works: shades for every color, a contrast check for readable text, and CSS or Tailwind code to copy. Free, no sign-up.">
+  <meta property="og:title" content="Color Palette">
+  <meta property="og:description" content="Make a color palette that works: shades for every color, a contrast check for readable text, and CSS or Tailwind code to copy. Free, no sign-up.">
+  <meta property="og:image" content="https://colors.kodeby.app/screenshot.png">
+  <meta property="og:url" content="https://colors.kodeby.app">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="favicon.svg" alt="" width="28" height="28">
+      <div>
+        <strong data-i18n="appName">Color Palette</strong>
+        <span class="tagline" data-i18n="tagline">Free. No sign-up. Nothing leaves your browser.</span>
+      </div>
+    </div>
+    <nav class="actions">
+      <label class="inline harmony"><span data-i18n="harmony">Style</span>
+        <select id="harmony">
+          <option value="auto" data-i18n="h_auto">Surprise me</option>
+          <option value="analogous" data-i18n="h_analogous">Analogous</option>
+          <option value="complementary" data-i18n="h_complementary">Complementary</option>
+          <option value="triadic" data-i18n="h_triadic">Triadic</option>
+          <option value="mono" data-i18n="h_mono">One color</option>
+        </select>
+      </label>
+      <button type="button" id="btn-share" data-i18n="share">Copy link</button>
+      <button type="button" id="btn-save" data-i18n="savePalette">Save palette</button>
+      <button type="button" id="btn-shuffle" class="primary" data-i18n="shuffle">New colors</button>
+      <select id="lang" aria-label="Language">
+        <option value="en">English</option>
+        <option value="nb">Norsk</option>
+      </select>
+    </nav>
+  </header>
+
+  <main class="page">
+    <p class="hint top-hint" data-i18n="spaceHint">Press Space for new colors. Lock the ones you like and they stay.</p>
+    <section id="swatches" class="swatches" aria-label="Palette"></section>
+
+    <div class="tools">
+      <section class="card">
+        <h2><span data-i18n="shadesTitle">Shades</span> <small id="shades-of"></small></h2>
+        <div id="shades" class="shades"></div>
+        <p class="hint" data-i18n="shadesHint">Click a shade to copy it. Light shades work as backgrounds, dark shades as text.</p>
+      </section>
+
+      <section class="card">
+        <h2 data-i18n="contrastTitle">Is the text readable?</h2>
+        <div class="grid two">
+          <label><span data-i18n="textColor">Text</span><select id="fg"></select></label>
+          <label><span data-i18n="bgColor">Background</span><select id="bg"></select></label>
+        </div>
+        <div id="sample" class="sample">
+          <strong data-i18n="sampleTitle">Big heading</strong>
+          <p data-i18n="sampleText">Normal text should be easy to read for everyone, also on a phone in the sun.</p>
+          <span class="sample-btn" data-i18n="sampleButton">Button</span>
+        </div>
+        <div id="ratio" class="ratio" aria-live="polite"></div>
+      </section>
+
+      <section class="card">
+        <h2 data-i18n="exportTitle">Use it in your code</h2>
+        <div class="tabs" role="tablist">
+          <button type="button" data-fmt="css">CSS</button>
+          <button type="button" data-fmt="tailwind">Tailwind</button>
+          <button type="button" data-fmt="scss">SCSS</button>
+          <button type="button" data-fmt="json">JSON</button>
+        </div>
+        <label class="inline"><input type="checkbox" id="with-shades"> <span data-i18n="withShades">Include shades</span></label>
+        <textarea id="code" class="code" readonly rows="10" aria-label="Code"></textarea>
+        <button type="button" id="btn-copy-code" class="primary" data-i18n="copyCode">Copy code</button>
+      </section>
+    </div>
+
+    <section class="card saved-card">
+      <h2 data-i18n="savedTitle">Saved palettes</h2>
+      <ul id="saved" class="saved"></ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span data-i18n="privacy">Everything stays in this browser. There is no server, no account and no tracking.</span>
+    <span>· <span data-i18n="madeBy">An example app by the Kodeby team.</span> <a href="https://kodeby.app" rel="noopener">kodeby.app</a> · <a href="https://github.com/kodeby-app/color-palette" rel="noopener" data-i18n="source">Source code</a></span>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
